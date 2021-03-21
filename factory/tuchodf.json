@@ -1,0 +1,9 @@
+{
+	"name": "tuchodf",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3e344025-98e8-4abd-97b7-fdc482a56ede",
+		"tenantId": "5c4db968-9631-46d6-bb26-82c56e8cd6cd"
+	}
+}
