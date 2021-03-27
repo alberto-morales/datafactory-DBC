@@ -6,34 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "tuchodf"
-		},
-		"AzureDataLakeStorage2_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
-		},
-		"AzureDatabricks1_accessToken": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
-		},
-		"AzureDataLakeStorage2_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://tuchosa.dfs.core.windows.net"
-		},
-		"AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri": {
-			"type": "string",
-			"defaultValue": "https://dlsgen1668.azuredatalakestore.net/webhdfs/v1"
-		},
-		"AzureDataLakeStore1_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "5c4db968-9631-46d6-bb26-82c56e8cd6cd"
-		},
-		"AzureDataLakeStore1_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "6017609a-a09a-4dc4-9c5d-72931ae08eb2"
-		},
-		"AzureDataLakeStore1_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "tuchorg"
 		}
 	},
 	"variables": {
@@ -95,15 +67,13 @@
 						"inputs": [
 							{
 								"referenceName": "SourceDataset_q1m",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "DestinationDataset_q1m",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -113,42 +83,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_q1m')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDataset_q1m')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Notebook1",
-						"type": "DatabricksNotebook",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"notebookPath": "/Users/mail@albertomorales.eu/12-Production-Workloads-with-Azure-Data-Factory/Record-Run",
-							"baseParameters": {
-								"ranBy": "ADF"
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "AzureDatabricks1",
-							"type": "LinkedServiceReference"
-						}
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks1')]"
 			]
 		},
 		{
@@ -201,10 +135,10 @@
 				"annotations": [],
 				"type": "AzureBlobFS",
 				"typeProperties": {
-					"url": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]",
+					"url": "https://tuchosa.dfs.core.windows.net",
 					"accountKey": {
 						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+						"value": "**********"
 					}
 				}
 			},
@@ -218,28 +152,10 @@
 				"annotations": [],
 				"type": "AzureDataLakeStore",
 				"typeProperties": {
-					"dataLakeStoreUri": "[parameters('AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri')]",
-					"tenant": "[parameters('AzureDataLakeStore1_properties_typeProperties_tenant')]",
-					"subscriptionId": "[parameters('AzureDataLakeStore1_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('AzureDataLakeStore1_properties_typeProperties_resourceGroupName')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureDatabricks1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDatabricks",
-				"typeProperties": {
-					"domain": "https://adb-7923147784409182.2.azuredatabricks.net",
-					"accessToken": {
-						"type": "SecureString",
-						"value": "[parameters('AzureDatabricks1_accessToken')]"
-					},
-					"existingClusterId": "0307-223215-leech436"
+					"dataLakeStoreUri": "https://dlsgen1668.azuredatalakestore.net/webhdfs/v1",
+					"tenant": "5c4db968-9631-46d6-bb26-82c56e8cd6cd",
+					"subscriptionId": "6017609a-a09a-4dc4-9c5d-72931ae08eb2",
+					"resourceGroupName": "tuchorg"
 				}
 			},
 			"dependsOn": []

@@ -5,8 +5,26 @@
 		"factoryName": {
 			"value": "tuchodf"
 		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
 		"AzureDatabricks1_accessToken": {
 			"value": ""
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://tuchosa.dfs.core.windows.net"
+		},
+		"AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://dlsgen1668.azuredatalakestore.net/webhdfs/v1"
+		},
+		"AzureDataLakeStore1_properties_typeProperties_tenant": {
+			"value": "5c4db968-9631-46d6-bb26-82c56e8cd6cd"
+		},
+		"AzureDataLakeStore1_properties_typeProperties_subscriptionId": {
+			"value": "6017609a-a09a-4dc4-9c5d-72931ae08eb2"
+		},
+		"AzureDataLakeStore1_properties_typeProperties_resourceGroupName": {
+			"value": "tuchorg"
 		},
 		"containerUri": {
 			"value": ""
