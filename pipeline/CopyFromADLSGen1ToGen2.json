@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_q1m",
+				"name": "copy_adlg1_adlg2",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
