@@ -1,0 +1,13 @@
+{
+	"name": "AzureDataLakeStore1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataLakeStore",
+		"typeProperties": {
+			"dataLakeStoreUri": "https://dlsgen1668.azuredatalakestore.net/webhdfs/v1",
+			"tenant": "5c4db968-9631-46d6-bb26-82c56e8cd6cd",
+			"subscriptionId": "6017609a-a09a-4dc4-9c5d-72931ae08eb2",
+			"resourceGroupName": "tuchorg"
+		}
+	}
+}
